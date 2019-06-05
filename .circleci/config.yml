@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/openjdk:12-jdk
+    steps:
+      - checkout
+      - run:
+          name: compile application
+          command: |
+            monkeyc -d fenix5plus -o badminton.prg --unit-test
+      - run:
+          name: launch simulator
+          command: |
+            connectiq
+      - run: monkeydo badminton.prg fenix5plus -t
+
