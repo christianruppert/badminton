@@ -8,7 +8,7 @@ jobs:
       - run:
           name: compile application
           command: |
-            monkeyc -d fenix5plus -o badminton.prg --unit-test
+            monkeyc -f monkey.jungle -d fenix5plus -o badminton.prg --unit-test
       - run:
           name: launch simulator
           command: |
